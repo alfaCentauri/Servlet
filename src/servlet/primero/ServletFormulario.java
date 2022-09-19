@@ -15,6 +15,9 @@ public class ServletFormulario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession sesion = request.getSession();
         String nombre = request.getParameter("nombre");
+        String clave = request.getParameter("clave");
+        String sexo = request.getParameter("sexo");
+        String[] lenguajes = request.getParameterValues("lenguajes");
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -25,6 +28,7 @@ public class ServletFormulario extends HttpServlet {
             out.println("<body>");
             out.println("<div>\n");
             out.println("<H1>El formulario desde un Servlet es:</H1>\n");
+            out.println("<p>Nombre: "+ nombre +", clave: " + clave + "</p>\n");
             out.println("</div>\n");
             out.println("</body>");
             out.println("</html>");
